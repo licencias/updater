@@ -6,22 +6,22 @@
     "pacifico": {
         "db": "Datalab_Pacifico_v2",
         "modelos":[
-            {"id": 0,"ruta": "D:\\updater\\modelos\\pacifico\\1"},
-            {"id": 1,"ruta": "D:\\updater\\modelos\\pacifico\\2"}
+            {"id": 0,"ruta": "C:\\Users\\orque\\updater\\modelos\\pacifico\\1"},
+            {"id": 1,"ruta": "C:\\Users\\orque\\updater\\modelos\\pacifico\\2"}
         ]
     },
     "santafe":{
         "db": "DataLab_SantaFe",
         "modelos":[
-            {"id": 0,"ruta": "D:\\updater\\modelos\\santafe\\1"},
-            {"id": 1,"ruta": "D:\\updater\\modelos\\santafe\\2"}
+            {"id": 0,"ruta": "C:\\Users\\orque\\updater\\modelos\\santafe\\1"},
+            {"id": 1,"ruta": "C:\\Users\\orque\\updater\\modelos\\santafe\\2"}
         ]
     },
     "laja":{
         "db": "DataLab_Laja",
         "modelos":[
-            {"id": 0,"ruta": "D:\\updater\\modelos\\laja\\1"},
-            {"id": 1,"ruta": "D:\\updater\\modelos\\laja\\2"}
+            {"id": 0,"ruta": "C:\\Users\\orque\\updater\\modelos\\laja\\1"},
+            {"id": 1,"ruta": "C:\\Users\\orque\\updater\\modelos\\laja\\2"}
         ]
     }
 }

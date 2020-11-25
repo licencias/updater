@@ -3,7 +3,18 @@ import time
 import logging
 import pandas as pd
 
-def generarMatriz(planta):
+def generateList(lista_ordenana,tags,minimos,cluster,min_rec):
+    for key,valores in min_rec.items():
+        for indice in lista_ordenana:
+            for k,v in valores.items():
+                if(indice == k):
+                    tags.append(k)
+                    minimos.append(v)
+                    cluster.append(key)
+
+    return tags,minimos,cluster
+
+def generateMatrix(planta):
     """ Metodo que crea un dataframe con varios archivos pckls """
     try:
         cluster = []
@@ -14,8 +25,6 @@ def generarMatriz(planta):
         elementos = planta['modelos']
         for indice in elementos:
             centros_rec = pd.read_pickle(indice.get('ruta') + '\centros_blanqueoC.pkl')
-            centros_resp = pd.read_pickle(indice.get('ruta') + '\centros_blanqueoR.pkl')
-            centros_all = pd.read_pickle(indice.get('ruta') + '\centros_blanqueoA.pkl')
             max_rec = pd.read_pickle(indice.get('ruta') + '\max_rec.pkl')
             min_rec = pd.read_pickle(indice.get('ruta') + '\min_rec.pkl')
             lista_ordenana = []
@@ -24,13 +33,14 @@ def generarMatriz(planta):
             for key,valores in aux.items():
                 lista_ordenana.append(key)
             
-            for key,valores in min_rec.items():
-                for indice in lista_ordenana:
-                    for k,v in valores.items():
-                        if(indice == k):
-                            tags.append(k)
-                            minimos.append(v)
-                            cluster.append(key)
+            tags,minimos,cluster = generateList(lista_ordenana,tags,minimos,cluster,min_rec)
+            #for key,valores in min_rec.items():
+            #    for indice in lista_ordenana:
+            #        for k,v in valores.items():
+            #            if(indice == k):
+            #                tags.append(k)
+            #                minimos.append(v)
+            #                cluster.append(key)
 
             for key,valores in max_rec.items():
                 for indice in lista_ordenana:
@@ -88,7 +98,6 @@ def generarTargets(planta):
         elementos = planta['modelos']
 
         for indice in elementos:
-            centros_resp = pd.read_pickle(indice.get('ruta') + '\centros_blanqueoR.pkl')
             for e, element in centros_resp.items():
                 for k,v in element.items():
                     targets.append(v)
